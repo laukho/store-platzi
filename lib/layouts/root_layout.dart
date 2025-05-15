@@ -11,7 +11,7 @@ class RootLayout extends StatelessWidget {
     return Scaffold(
       appBar: AppbarWidget(),
       drawer: DrawerWidget(),
-      body: screen,
+      body: SingleChildScrollView(child: screen),
     );
   }
 }

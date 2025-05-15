@@ -38,7 +38,13 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
           icon: Icon(Icons.shopping_cart),
         ),
         IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
-        IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+        // IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+        IconButton(
+          onPressed: () {
+            context.replaceNamed('login');
+          },
+          icon: Icon(Icons.person),
+        ),
       ],
     );
   }

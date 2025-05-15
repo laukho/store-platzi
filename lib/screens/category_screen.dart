@@ -44,6 +44,9 @@ class CategoryScreen extends StatelessWidget {
                       title: Text(data[index].title!),
                       subtitle: Text('${data[index].price!}€'),
                       trailing: Icon(Icons.arrow_forward_ios, size: 10),
+                      onTap: () {
+                        print(data[index].title);
+                      },
                     );
                   },
                 );
