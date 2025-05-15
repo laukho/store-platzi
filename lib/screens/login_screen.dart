@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:store/services/auth_api_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -64,7 +65,28 @@ class _LoginScreenState extends State<LoginScreen> {
                   // sauvegarder la saisie
                   _formKey.currentState!.save();
 
-                  inspect(_type);
+                  // inspect(_type);
+
+                  // authentification
+                  dynamic auth = AuthApiService().getAuth(_type).onError((
+                    error,
+                    stackTrace,
+                  ) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Credentials error')),
+                    );
+                    return {};
+                  });
+
+                  // inspect(auth);
+                  // si une erreur est renvoyée
+                  // inspect(auth is Error);
+                  // if (auth is Error) {
+                  //   // afficher un message d'erreur
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     SnackBar(content: Text('Credentials error')),
+                  //   );
+                  // }
                 }
               },
               child: Text('Login'),

@@ -1,9 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class AuthApiService {
   // authentification
-  Future getAuth(Map loginType) async {
+  Future<Map<String, dynamic>> getAuth(Map loginType) async {
     // url de l'API
     Uri url = Uri.parse('https://api.escuelajs.co/api/v1/auth/login');
 
@@ -14,10 +15,12 @@ class AuthApiService {
       body: jsonEncode(loginType),
     );
 
-    // tester le statut 200
-    if (response.statusCode == 200) {
+    // inspect(response);
+
+    // tester le statut 200 et 201
+    if ([200, 201].contains(response.statusCode)) {
       // décoder les données en JSON
-      Map<String, String> data = jsonDecode(response.body);
+      Map<String, dynamic> data = jsonDecode(response.body);
 
       return data;
     }
