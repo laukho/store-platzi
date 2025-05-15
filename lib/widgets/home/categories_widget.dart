@@ -36,6 +36,7 @@ class CategoriesWidget extends StatelessWidget {
               return SizedBox(
                 height: 500,
                 child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: data.length,
                   // personnalisation de la grille

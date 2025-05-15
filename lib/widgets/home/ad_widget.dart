@@ -8,7 +8,7 @@ class AdWidget extends StatefulWidget {
 
   // liste des pubs
   final List adsList = [
-    // Map : accéder aux propriété par des crochets
+    // Map : accéder aux propriétés par des crochets
     {"img": "ad.webp", "text": "Text01"},
     {"img": "ad2.webp", "text": "Text02"},
     {"img": "ad3.webp", "text": "Text03"},
